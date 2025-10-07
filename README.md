@@ -149,6 +149,11 @@ npm run dev          # Inicia servidor de desarrollo con Turbopack
 npm run build        # Construye la aplicación para producción
 npm start            # Inicia el servidor de producción
 
+# Testing
+npm test             # Ejecuta todos los tests
+npm run test:watch   # Ejecuta tests en modo watch
+npm run test:coverage # Genera reporte de cobertura
+
 # Utilidades
 npm run lint         # Ejecuta ESLint para verificar código
 ```
@@ -451,7 +456,66 @@ Si tus URLs no se guardan:
 2. Revisa la consola para errores de JavaScript
 3. Prueba en modo incógnito para descartar extensiones
 
-## 🤝 Contribuir
+## � Testing
+
+Este proyecto incluye un conjunto completo de tests para garantizar la calidad del código.
+
+### Configuración de Tests
+
+Para instalar las dependencias de testing:
+
+```bash
+npm install
+```
+
+### Ejecutar Tests
+
+```bash
+# Ejecutar todos los tests
+npm test
+
+# Ejecutar tests en modo watch (desarrollo)
+npm run test:watch
+
+# Ejecutar tests con reporte de cobertura
+npm run test:coverage
+```
+
+### Cobertura de Tests
+
+El proyecto incluye tests para:
+
+- ✅ **Componentes**: Header, UrlListContent
+- ✅ **Páginas**: Home, Create, Redirect
+- ✅ **API Routes**: /api/short-urls
+- ✅ **Integración**: Flujos completos de usuario
+- ✅ **Utilidades**: Helpers y funciones auxiliares
+
+**Meta de cobertura**: 80%+ en todas las métricas
+
+### Documentación de Tests
+
+Para información detallada sobre testing, consulta:
+
+📖 **[TESTING.md](./TESTING.md)** - Guía completa de testing
+
+Incluye:
+- Estructura de tests
+- Cómo escribir nuevos tests
+- Mejores prácticas
+- Solución de problemas
+- Ejemplos de código
+
+### Continuous Integration
+
+Los tests se ejecutan automáticamente en:
+- Cada push a las ramas principales
+- Cada Pull Request
+- Antes del deployment
+
+Ver configuración en `.github/workflows/test.yml`
+
+## �🤝 Contribuir
 
 ¿Quieres contribuir? ¡Genial! Aquí está cómo:
 
