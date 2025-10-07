@@ -1,3 +1,5 @@
+import { NextRequest } from 'next/server';
+
 // Mock fetch before importing the route
 global.fetch = jest.fn();
 
@@ -35,7 +37,7 @@ describe('API Route: /api/short-urls', () => {
 
     const request = {
       json: async () => ({ url: 'https://example.com' }),
-    } as any;
+    } as unknown as NextRequest;
 
     const response = await POST(request);
     const data = await response.json();
@@ -67,7 +69,7 @@ describe('API Route: /api/short-urls', () => {
 
     const request = {
       json: async () => ({ url: 'https://example.com' }),
-    } as any;
+    } as unknown as NextRequest;
 
     const response = await POST(request);
     const data = await response.json();
@@ -83,7 +85,7 @@ describe('API Route: /api/short-urls', () => {
 
     const request = {
       json: async () => ({ url: 'https://example.com' }),
-    } as any;
+    } as unknown as NextRequest;
 
     const response = await POST(request);
     const data = await response.json();
@@ -105,7 +107,7 @@ describe('API Route: /api/short-urls', () => {
 
     const request = {
       json: async () => ({ url: testUrl }),
-    } as any;
+    } as unknown as NextRequest;
 
     await POST(request);
 

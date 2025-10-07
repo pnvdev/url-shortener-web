@@ -31,7 +31,7 @@ export const clearMockStorage = () => {
 /**
  * Setup mock fetch response
  */
-export const mockFetchSuccess = (data: any) => {
+export const mockFetchSuccess = (data: unknown) => {
   (global.fetch as jest.Mock).mockResolvedValueOnce({
     ok: true,
     status: 200,
@@ -126,11 +126,12 @@ export const mockConfirm = (returnValue = true) => {
  */
 export const mockLocation = () => {
   const originalLocation = window.location;
-  delete (window as any).location;
-  (window as any).location = { ...originalLocation, href: '' };
+  const windowWithLocation = window as { location?: Location };
+  delete windowWithLocation.location;
+  windowWithLocation.location = { ...originalLocation, href: '' } as Location;
   
   return () => {
-    window.location = originalLocation;
+    (window as { location?: Location }).location = originalLocation;
   };
 };
 
